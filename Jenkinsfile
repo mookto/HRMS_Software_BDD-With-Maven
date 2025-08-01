@@ -6,10 +6,10 @@ pipeline {
         jdk 'Java 17'         // JDK name ওখানে সেট করা থাকতে হবে
     }
 
-    environment {
-        // Optional: আপনি চাইলে environment variables set করতে পারেন
-        // Example: ENV = 'staging'
-    }
+//     environment {
+//         // Optional: আপনি চাইলে environment variables set করতে পারেন
+//         // Example: ENV = 'staging'
+//     }
 
     stages {
         stage('Checkout Code') {
