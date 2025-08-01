@@ -14,7 +14,9 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/mookto/HRMS_Software_BDD-With-Maven.git'
+                git branch: 'main',
+                            credentialsId: 'a69c19ca-d53c-4d7f-8ae5-358de7c377c8gt', // your Jenkins credential ID
+                            url: 'https://github.com/mookto/HRMS_Software_BDD-With-Maven.git'
             }
         }
 
