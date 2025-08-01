@@ -22,7 +22,7 @@ public class BaseTest {
         options.addArguments("--remote-allow-origins=*");
 
 // Fix the user-data-dir issue:
-        options.addArguments("--user-data-dir=/tmp/chrome-user-data-" + System.currentTimeMillis());
+      //  options.addArguments("--user-data-dir=/tmp/chrome-user-data-" + System.currentTimeMillis());
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
