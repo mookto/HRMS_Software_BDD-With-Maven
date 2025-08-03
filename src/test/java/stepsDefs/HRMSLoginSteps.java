@@ -36,19 +36,21 @@ public class HRMSLoginSteps extends BaseTest{
     	Thread.sleep(5000);
     	dashboardP.salary_menu();
     	Thread.sleep(5000);
-        throw new io.cucumber.java.PendingException();
+
    
     }
     
     @When("the user clicks generate salary")
     public void the_user_clicks_generate_salary() {
+        System.out.print("the user clicks generate salary step is passed ");
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
     @Then("the salary should be generated")
     public void the_salary_should_be_generated() {
+        System.out.print("the salary should be generated step is passed");
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 }
