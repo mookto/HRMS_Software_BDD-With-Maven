@@ -12,9 +12,6 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-
-
-
         ChromeOptions options = new ChromeOptions();
 
 // Essential flags for Docker/Headless/Jenkins environments
@@ -39,9 +36,8 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        if (driver != null) {
         driver.quit();
       
     }
-    }
+    
 }
