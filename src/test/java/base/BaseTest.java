@@ -12,32 +12,45 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        ChromeOptions options = new ChromeOptions();
+        try {
+            // 🧹 Kill any leftover Chrome processes (optional but helpful in CI/WSL2)
+            Runtime.getRuntime().exec("pkill chrome");
 
-// Essential flags for Docker/Headless/Jenkins environments
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-       // options.addArguments("--headless"); // Optional, depending on your use case
-        options.addArguments("--remote-allow-origins=*");
+            ChromeOptions options = new ChromeOptions();
 
-// Fix the user-data-dir issue:
-      //  options.addArguments("--user-data-dir=/tmp/chrome-user-data-" + System.currentTimeMillis());
+            // ✅ Recommended flags for stability in WSL2/Docker/Jenkins
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("--disable-extensions");
+            options.addArguments("--disable-setuid-sandbox");
+            options.addArguments("--disable-software-rasterizer");
+            options.addArguments("--disable-dev-tools");
+            options.addArguments("--disable-infobars");
+            options.addArguments("--headless=new"); // Use if running without GUI
 
-        // ✅ Ensure a unique user-data-dir is used (to avoid "already in use" error)
-        String tempProfile = System.getProperty("java.io.tmpdir") + "/profile-" + UUID.randomUUID();
-        options.addArguments("--user-data-dir=" + tempProfile);
+            // ✅ Create a unique user data directory to avoid session conflicts
+            String tempProfile = System.getProperty("java.io.tmpdir") + "/profile-" + UUID.randomUUID();
+            options.addArguments("--user-data-dir=" + tempProfile);
 
-        // Optional: explicitly set binary if you're using custom chrome
-        // options.setBinary("/usr/bin/google-chrome");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+            // 🚀 Launch Chrome
+            driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
+
+        } catch (IOException e) {
+            System.err.println("⚠️ Could not kill chrome processes: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("🚨 Failed to initialize ChromeDriver: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
-      
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
-    
 }
