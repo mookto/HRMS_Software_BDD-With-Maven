@@ -41,7 +41,7 @@ public class BaseTest {
     public void tearDown() {
         if (driver != null) {
         driver.quit();
-        driver = null; // Reset for safety in case of future parallel runs
+      
     }
     }
 }
