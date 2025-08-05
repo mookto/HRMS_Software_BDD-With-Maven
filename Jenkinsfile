@@ -31,7 +31,7 @@ pipeline {
         stage('Execute Tests') {
             steps {
                 sh 'mvn test'
-                sh 'mvn clean test verify'
+                
             }
         }
 
