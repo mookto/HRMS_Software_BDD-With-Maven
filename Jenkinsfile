@@ -47,7 +47,7 @@ pipeline {
         stage('Archive Test Results') {
             steps {
                 junit '**/target/surefire-reports/*.xml'  // TestNG result archive
-               // archiveArtifacts artifacts: '**/target/cucumber-reports/**', allowEmptyArchive: true
+                archiveArtifacts artifacts: '**/target/cucumber-reports/**', allowEmptyArchive: true
                 archiveArtifacts artifacts: '**/target/cucumber-html-report/**', allowEmptyArchive: true
             }
         }
