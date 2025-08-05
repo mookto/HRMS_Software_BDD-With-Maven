@@ -51,6 +51,17 @@ pipeline {
                 archiveArtifacts artifacts: '**/target/cucumber-html-report/**', allowEmptyArchive: true
             }
         }
+
+        stage('Publish HTML Report') {
+    steps {
+        publishHTML(target: [
+            reportName: 'Cucumber Report',
+            reportDir: 'target/cucumber-reports',
+            reportFiles: 'index.html',
+            keepAll: true
+        ])
+    }
+}
     }
 
     post {
