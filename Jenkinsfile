@@ -23,12 +23,15 @@ pipeline {
         stage('Build Project') {
             steps {
                 sh 'mvn clean compile'
+               
+
             }
         }
 
         stage('Execute Tests') {
             steps {
                 sh 'mvn test'
+                sh 'mvn clean test verify'
             }
         }
 
