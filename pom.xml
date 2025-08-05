@@ -49,26 +49,28 @@
       </plugin>
 
       <plugin>
-        <groupId>net.masterthought</groupId>
-        <artifactId>maven-cucumber-reporting</artifactId>
-        <version>5.7.6</version>
-        <executions>
-          <execution>
-            <id>generate-cucumber-html-report</id>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.7.6</version>
+    <executions>
+        <execution>
+            <id>generate-cucumber-reports</id>
             <phase>verify</phase>
             <goals>
-              <goal>generate</goal>
+                <goal>generate</goal>
             </goals>
             <configuration>
-              <projectName>HRMS BDD</projectName>
-              <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
-              <jsonFiles>
-                <param>${project.build.directory}/cucumber.json</param>
-              </jsonFiles>
+                <!-- ✅ Correct path without 'json:' -->
+                <jsonFiles>
+                    <param>target/cucumber-reports/cucumber.json</param>
+                </jsonFiles>
+                <outputDirectory>target/cucumber-html-reports</outputDirectory>
+                <projectName>HRMS_SOFTWARE_BDD</projectName>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
+        </execution>
+    </executions>
+</plugin>
+
 
 
     </plugins>
