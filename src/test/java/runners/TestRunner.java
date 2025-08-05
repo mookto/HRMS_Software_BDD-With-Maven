@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 	    features = "src/test/resources/features",
 	    glue = "stepsDefs",
-	    plugin = {"pretty", "html:target/cucumber-report.html"},
+	    plugin = {"pretty", "html:target/cucumber-report.html","json:target/cucumber.json"},
 	    monochrome = true
 	)
 public class TestRunner extends AbstractTestNGCucumberTests{
