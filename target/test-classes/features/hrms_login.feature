@@ -17,6 +17,7 @@
 ## (Comments)
 #Sample Feature Definition Template
 Feature: HRMS Login and Salary Generation
+
   Scenario: Valid user logs in and generates salary
     Given the user is on the login page
     When the user logs in with valid credentials
