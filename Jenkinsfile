@@ -35,19 +35,19 @@ pipeline {
             }
         }
 
-        stage('Cucumber Report') {
-            steps {
-                // যদি cucumber-reporting plugin থাকে, তাহলে এখান থেকে চালাতে পারো
-                // অথবা HTML report build করে archive করতে পারো
-                echo 'Generating Cucumber Report...'
-                sh 'mvn net.masterthought:maven-cucumber-reporting:generate'
-            }
-        }
+        // stage('Cucumber Report') {
+        //     steps {
+        //         // যদি cucumber-reporting plugin থাকে, তাহলে এখান থেকে চালাতে পারো
+        //         // অথবা HTML report build করে archive করতে পারো
+        //         echo 'Generating Cucumber Report...'
+        //         sh 'mvn net.masterthought:maven-cucumber-reporting:generate'
+        //     }
+        // }
 
         stage('Archive Test Results') {
             steps {
                 junit '**/target/surefire-reports/*.xml'  // TestNG result archive
-                archiveArtifacts artifacts: '**/target/cucumber-reports/**', allowEmptyArchive: true
+               // archiveArtifacts artifacts: '**/target/cucumber-reports/**', allowEmptyArchive: true
                 archiveArtifacts artifacts: '**/target/cucumber-html-report/**', allowEmptyArchive: true
             }
         }
