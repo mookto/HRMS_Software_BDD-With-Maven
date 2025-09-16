@@ -32,48 +32,6 @@
       <artifactId>cucumber-java</artifactId>
       <version>7.15.0</version>
     </dependency>
-
   </dependencies>
 
-  <build>
-    <plugins>
-      <!-- Compiler plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
-        <configuration>
-          <source>17</source>
-          <target>17</target>
-        </configuration>
-      </plugin>
-
-      <plugin>
-    <groupId>net.masterthought</groupId>
-    <artifactId>maven-cucumber-reporting</artifactId>
-    <version>5.7.6</version>
-    <executions>
-        <execution>
-            <id>generate-cucumber-reports</id>
-            <phase>verify</phase>
-            <goals>
-                <goal>generate</goal>
-            </goals>
-            <configuration>
-                <!-- ✅ Correct path without 'json:' -->
-                <jsonFiles>
-                    <param>target/cucumber-reports/cucumber.json</param>
-                </jsonFiles>
-                <outputDirectory>target/cucumber-html-reports</outputDirectory>
-                <projectName>HRMS_SOFTWARE_BDD</projectName>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
-
-
-
-    </plugins>
-  </build>
-  
 </project>
