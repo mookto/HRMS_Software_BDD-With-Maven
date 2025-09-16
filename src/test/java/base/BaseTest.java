@@ -18,7 +18,7 @@ public class BaseTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
-        options.addArguments("--headless"); // Optional: removes display dependency
+        //options.addArguments("--headless"); // Optional: removes display dependency
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
