@@ -3,7 +3,7 @@
 
 ---
 ## Project Overview
-This project is an automated testing suite for **HRMS-Solution-Automation** web application using **Selenium WebDriver** with **TestNG**. It includes test cases for login, employee based events, leave management, payroll, attendance, report creation etc.
+This project is an automated testing suite for **HRMS-Solution-Automation** web application using **Selenium WebDriver** with **TestNG**. It includes test cases for login, employee-based events, leave management, payroll, attendance, report creation etc.
 ---
 ## 🛠 Technology Stack
 
@@ -18,12 +18,12 @@ This project is an automated testing suite for **HRMS-Solution-Automation** web 
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   ├── test/                        # All test are in this folder
+│   ├── test/                        # All tests are in this folder
 │   │   ├── java/
 │   │   │   ├── pages/               # Page Object Model (POM) Classes
 │   │   │   ├── setup/               # WebDriver Setup
 │   │   │   ├── testrunner/          # TestNG Test Runner Classes
-│   │   │   ├── stepdefs/               # all kinds of stepdefinations files should be here 
+│   │   │   ├── stepdefs/               # all kinds of step definitions files should be here 
 │   │   ├── resources/
 │   │   │   ├── Features/         # Keeps generated screenshots for faild tests (Ignored in git)
 │   │   │   ├── suites/              # Test suites
@@ -51,18 +51,14 @@ Before running the project, ensure you have the following installed:
 - Run all tests:
   ```sh
   mvn clean install
-  mvn test
-  ```
-- Run a specific test class:
-  ```sh
- mvn test --tests org.gradle.SomeTest.someSpecificFeature
+  mvn clean test
   ```
 
-## Generating Allure Report
-- After running all tests, run the mentioned commands,
-  ```sh
-  allure serve allure-results
-  ```
+
+## Generating cucumber HTML Report
+- After running all tests, check the report in the specific path ,
+- The Path **target/cucumber-html-report**
+
 
 
 ## Test Cases Overview
